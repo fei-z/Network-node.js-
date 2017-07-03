@@ -23,10 +23,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//这里设置路径 第一个参数为请求路径，第二项为服务器界面路徑，已在上面注册
+
+
+
+
+//设置外部访问地址
 app.use('/', index);
 app.use('/users', users);
-app.use('/userdata', userdata);
+app.use('/userdata', userdata);//app.use('/userdata', require('./routes/userdata'));
+
+
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
